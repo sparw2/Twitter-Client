@@ -16,8 +16,8 @@ import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.sandeep.apps.twitterclient.R;
-import com.sandeep.apps.twitterclient.TweetDetailActivity;
 import com.sandeep.apps.twitterclient.TwitterClientApp;
+import com.sandeep.apps.twitterclient.activity.TweetDetailActivity;
 import com.sandeep.apps.twitterclient.fragments.ComposeFragment;
 import com.sandeep.apps.twitterclient.helpers.DateUtil;
 import com.sandeep.apps.twitterclient.models.Tweet;

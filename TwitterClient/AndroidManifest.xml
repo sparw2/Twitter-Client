@@ -49,7 +49,7 @@
 			android:label="@string/title_activity_timeline">
 		</activity>
 		<activity
-			android:name=".TweetDetailActivity"
+			android:name=".activity.TweetDetailActivity"
 			android:label="@string/title_activity_tweet_detail">
 			<meta-data
 				android:name="android.support.PARENT_ACTIVITY"

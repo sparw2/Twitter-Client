@@ -1,4 +1,4 @@
-package com.sandeep.apps.twitterclient;
+package com.sandeep.apps.twitterclient.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.sandeep.apps.twitterclient.R;
 import com.sandeep.apps.twitterclient.models.Tweet;
 
 public class TweetDetailActivity extends Activity {
