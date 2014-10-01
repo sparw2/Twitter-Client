@@ -29,4 +29,4 @@ The following libraries are used to make this possible:
  * [ActiveAndroid](https://github.com/pardom/ActiveAndroid) - Simple ORM for persisting a local SQLite database on the Android device
 
 Walkthrough of all user stories:
-[link](http://youtu.be/aLPFM_ZeAlI)
+[link](http://youtu.be/aLPFM_ZeAlI) or [here](https://vimeo.com/107717509)
