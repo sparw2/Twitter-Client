@@ -4,8 +4,20 @@ Time spent: 22 hours
 
 Completed user stories:
 <ol>
-<li> All required stories </li>
-<li> Few advanced and bonus stories </li>
+<li> User can sign in to Twitter using OAuth login </li>
+<li> User should be displayed the username, name, and body for each tweet </li>
+<li> User should be displayed the username, name, and body for each tweet </li>
+<li> User should be displayed the relative timestamp for each tweet "8m", "7h" </li>
+<li> Optional: Links in tweets are clickable and will launch the web browser (see autolink) </li>
+<li> User can compose a new tweet </li>
+<li> User can click a “Compose” icon in the Action Bar on the top right </li>
+<li> User can then enter a new tweet and post this to twitter </li>
+<li> User is taken back to home timeline with new tweet visible in timeline </li>
+<li> Optional: User can see a counter with total number of characters left for tweet </li>
+<li> Advanced: User can refresh tweets timeline by pulling down to refresh (i.e pull-to-refresh) </li>
+<li> Advanced: User can open the twitter app offline and see last loaded tweets </li>
+<li> Tweets are persisted into sqlite and can be displayed from the local DB </li>
+<li> Bonus: Compose activity is replaced with a modal overlay </li>
 </ol>
 
 The following libraries are used to make this possible:
