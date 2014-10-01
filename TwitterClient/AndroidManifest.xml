@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.sandeep.apps.twitterclient"
+	android:versionCode="1"
+	android:versionName="1.0">
+
+	<uses-sdk
+		android:minSdkVersion="14"
+		android:targetSdkVersion="19"/>
+
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.READ_CALENDAR"/>
+
+	<application
+		android:name=".TwitterClientApp"
+		android:allowBackup="true"
+		android:icon="@drawable/ic_twitter"
+		android:label="@string/app_name"
+		android:theme="@style/MyCustomTheme">
+		<meta-data
+			android:name="AA_DB_NAME"
+			android:value="twitterclient1.db"/>
+		<meta-data
+			android:name="AA_DB_VERSION"
+			android:value="1"/>
+
+		<activity
+			android:name=".activity.LoginActivity"
+			android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+
+				<category android:name="android.intent.category.DEFAULT"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+
+				<data
+					android:host="twitterclient"
+					android:scheme="oauth"/>
+			</intent-filter>
+		</activity>
+		<activity
+			android:name=".activity.TimelineActivity"
+			android:label="@string/title_activity_timeline">
+		</activity>
+		<activity
+			android:name=".TweetDetailActivity"
+			android:label="@string/title_activity_tweet_detail">
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value=".activity.TimelineActivity"></meta-data>
+		</activity>
+	</application>
+
+</manifest>

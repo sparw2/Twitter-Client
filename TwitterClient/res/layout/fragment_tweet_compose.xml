@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+  	android:id="@+id/fgComposeTweet"
+  	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:padding="10dp">
+	
+	<ImageView android:id="@+id/ivUserImage"
+		android:layout_width="40dp" 
+		android:layout_height="40dp"
+		android:scaleType="fitCenter"
+		android:paddingLeft="05dp"
+		android:layout_alignParentLeft="true" 
+		android:layout_alignParentTop="true"
+		android:src="@drawable/ic_launcher"/>
+	
+	<TextView android:id="@+id/tvNameFragment"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:layout_alignParentTop="true"
+		android:layout_toRightOf="@+id/ivUserImage" 
+		android:layout_marginLeft="05dp"
+		android:textSize="14sp"
+		android:textStyle="bold"/>
+	
+	<TextView android:id="@+id/tvUserNameFragment" 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:layout_alignLeft="@+id/tvNameFragment"
+		android:layout_below="@+id/tvNameFragment"
+		android:layout_marginLeft="5dp"
+		android:layout_toRightOf="@+id/ivUserImage"
+		android:textColor="#bbbbbb"
+		android:textSize="12sp"/>
+	
+	<TextView android:id="@+id/tvTweetCharacterRemaining" 
+		android:layout_width="wrap_content"
+		android:gravity="center"
+		android:layout_height="40dp" 
+		android:layout_alignRight="@+id/btTweet"
+		android:layout_toRightOf="@+id/tvUserNameFragment"
+		android:layout_marginRight="05dp"
+		android:textColor="#bbbbbb"
+		android:textSize="15sp"
+		android:text="@string/tweet_charatcersize_count"/>
+	
+	<Button android:id="@+id/btTweet"
+		android:background="@drawable/custom_button"
+		android:layout_width="70dp"
+		android:layout_height="40dp" 
+		android:layout_alignParentRight="true" 
+		android:layout_alignTop="@+id/tvNameFragment"
+		android:textColor="@android:color/white"
+		android:textStyle="bold"
+		android:text="@string/button_label_tweet"/>
+	
+	<EditText android:id="@+id/etTweet"
+		android:gravity="start" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content" 
+		android:layout_alignParentBottom="true" 
+		android:layout_alignLeft="@+id/ivUserImage" 
+		android:layout_alignRight="@+id/btTweet" 
+		android:layout_below="@+id/ivUserImage" 
+		android:layout_marginTop="20dp" 
+		android:textSize="15sp"
+		android:maxLength="140"
+		android:hint="@string/tweet_compose_caption" 
+		android:textColorHint="#bbbbbb"
+		android:inputType="textMultiLine">
+		<requestFocus/>
+	</EditText>
+	
+</RelativeLayout>
