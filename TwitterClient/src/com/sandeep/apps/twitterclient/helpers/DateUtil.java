@@ -31,6 +31,10 @@ public class DateUtil {
 			
 			relativeDate = relativeDate.replace("hours ago", "h");
 			relativeDate = relativeDate.replace("hour ago", "h");
+		
+			relativeDate = relativeDate.replace("days ago", "d");
+			relativeDate = relativeDate.replace("day ago", "d");
+		
 			
 			relativeDate = relativeDate.replace(" ","");
 			

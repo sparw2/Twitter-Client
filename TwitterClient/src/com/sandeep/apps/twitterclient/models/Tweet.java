@@ -1,6 +1,5 @@
 package com.sandeep.apps.twitterclient.models;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +8,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.AsyncTask;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
@@ -17,9 +18,7 @@ import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
 
 @Table(name = "Tweet")
-public class Tweet extends Model implements Serializable{
-
-	private static final long serialVersionUID = -351469312670021735L;
+public class Tweet extends Model implements Parcelable{
 
 	@Column(name = "remoteId", index=true, unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
 	public String id;
@@ -123,6 +122,52 @@ public class Tweet extends Model implements Serializable{
 			return tweetExists;
 		}
 		
+	}
+
+
+	public static final Parcelable.Creator<Tweet> CREATOR
+	    = new Parcelable.Creator<Tweet>() {
+				@Override
+				public Tweet createFromParcel(Parcel in) {
+				    return new Tweet(in);
+				}
+				
+				@Override
+				public Tweet[] newArray(int size) {
+				    return new Tweet[size];
+				}
+		};
+
+	private Tweet(Parcel in) {
+		id = in.readString();
+		user = in.readParcelable(User.class.getClassLoader());
+		tweetBody = in.readString();
+		created_at = in.readString();
+		favorited = in.readByte() != 0;
+		favoriteCount = in.readInt();
+		retweeted = in.readByte() != 0;
+		retweetCount = in.readInt();
+		mediaUrl = in.readString();
+		replyId = in.readString();
+	}
+	
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(id);
+		dest.writeParcelable(user, flags);
+		dest.writeString(tweetBody);
+		dest.writeString(created_at);
+		dest.writeByte((byte) (favorited ? 1 : 0));
+		dest.writeInt(favoriteCount);
+		dest.writeByte((byte) (retweeted ? 1 : 0));
+		dest.writeInt(retweetCount);
+		dest.writeString(mediaUrl);
+		dest.writeString(replyId);
 	}
 	
 }

@@ -6,7 +6,7 @@ import android.widget.AbsListView.OnScrollListener;
 
 public abstract class EndlessScrollListener implements OnScrollListener {
 
-	private int visibleThreshold = 5;
+	private int visibleThreshold = 2;
 
 	// The current offset index of data you have loaded
 	private int currentPage = 0;

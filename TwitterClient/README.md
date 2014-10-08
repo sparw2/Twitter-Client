@@ -1,3 +1,40 @@
+Extended Twitter client with tab interface and fragments.
+
+Time Spent: 25 hours
+
+Completed user stories:
+<ol>
+<li> Includes all required user stories from Week 3 Twitter Client </li>
+<li> User can switch between Timeline and Mention views using tabs. </li>
+<li> User can view their home timeline tweets </li>
+<li> User can view the recent mentions of their username. </li>
+<li> User can scroll to bottom of either of these lists and new tweets will load ("infinite scroll") </li>
+<li> Optional: Implement tabs in a gingerbread-compatible approach </li>
+<li> User can navigate to view their own profile </li>
+<li> User can see picture, tagline, # of followers, # of following, and tweets on their profile. </li>
+<li> User can click on the profile image in any tweet to see another user's profile. </li>
+<li> User can see picture, tagline, # of followers, # of following, and tweets of clicked user. </li>
+<li> Profile view should include that user's timeline </li>
+<li> Optional: User can view following list through the profile </li>
+<li> Advanced: Robust error handling, check if internet is available, handle error cases, network failures </li>
+<li> Advanced: When a network request is sent, user sees an indeterminate progress indicator </li>
+<li> Advanced: User can "reply" to any tweet on their home timeline </li>
+<li> The user that wrote the original tweet is automatically "@" replied in compose </li>
+<li> Advanced: User can click on a tweet to be taken to a "detail view" of that tweet </li>
+<li> Advanced: User can take favorite (and unfavorite) on a tweet </li>
+<li> Advanced: Improve the user interface and theme the app to feel twitter branded </li>
+<li> Advanced: User can search for tweets matching a particular query and see results </li>
+</ol>
+
+
+Walk-through of all user stories:
+[link](http://youtu.be/AR23q12zAUE) 
+
+
+	
+
+
+
 Simple Twitter client that supports viewing a Twitter timeline and composing a new tweet.
 
 Time spent: 22 hours 
@@ -30,3 +67,4 @@ The following libraries are used to make this possible:
 
 Walkthrough of all user stories:
 [link](http://youtu.be/aLPFM_ZeAlI) or [here](https://vimeo.com/107717509)
+

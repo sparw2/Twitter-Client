@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+	    android:orientation="vertical"
+	    android:layout_height="wrap_content"
+	    android:showDividers="middle"
+	    android:layout_marginBottom="05dp"
+	     android:background="@android:color/white"
+	    android:divider="@drawable/custom_dividers"
+	    >
+   <fragment
+	    android:id="@+id/fgUserProfile"
+	    android:name="com.sandeep.apps.twitterclient.fragments.ProfileFragment"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    tools:layout="@layout/fragment_profile"/>
+    
+   <fragment
+	    android:id="@+id/fgUserTimeline"
+	    android:name="com.sandeep.apps.twitterclient.fragments.UserTimelineFragment"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    tools:layout="@layout/fragment_timeline"/>
+
+</LinearLayout>

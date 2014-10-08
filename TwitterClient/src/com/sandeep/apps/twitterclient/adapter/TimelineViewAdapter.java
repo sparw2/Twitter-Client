@@ -4,6 +4,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
@@ -12,9 +13,12 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 import com.sandeep.apps.twitterclient.R;
 import com.sandeep.apps.twitterclient.TwitterClientApp;
 import com.sandeep.apps.twitterclient.activity.TweetDetailActivity;
@@ -43,6 +47,7 @@ public class TimelineViewAdapter extends ArrayAdapter<Tweet> {
 		TextView reFavCount;
 		ImageView ivReply;
 		ImageView ivFavorite;
+		ProgressBar pb;
 	}
 	
 	@Override
@@ -65,6 +70,7 @@ public class TimelineViewAdapter extends ArrayAdapter<Tweet> {
 			holder.reFavCount = (TextView)convertView.findViewById(R.id.tvFavoriteCount);
 			holder.ivReply = (ImageView)convertView.findViewById(R.id.ivReply);
 			holder.ivFavorite = (ImageView)convertView.findViewById(R.id.ivFavorite);
+			holder.pb = (ProgressBar) convertView.findViewById(R.id.pbLoading);
 			
 		}else{
 			holder = (ViewHolder)convertView.getTag();
@@ -96,13 +102,33 @@ public class TimelineViewAdapter extends ArrayAdapter<Tweet> {
 		if (tweet.mediaUrl != null){
 			// TODO - compute based on display 
 			holder.ivMediaImage.getLayoutParams().height=300;
-			imageLoader.displayImage(tweet.mediaUrl,holder.ivMediaImage);
+			imageLoader.displayImage(tweet.mediaUrl,holder.ivMediaImage, new ImageLoadingListener() {
+				
+				@Override
+				public void onLoadingStarted(String arg0, View arg1) {
+					holder.pb.setVisibility(ProgressBar.VISIBLE);
+				}
+				
+				@Override
+				public void onLoadingFailed(String arg0, View arg1, FailReason arg2) {
+				}
+				
+				@Override
+				public void onLoadingComplete(String arg0, View arg1, Bitmap arg2) {
+					holder.pb.setVisibility(ProgressBar.INVISIBLE);
+				}
+				
+				@Override
+				public void onLoadingCancelled(String arg0, View arg1) {
+		
+				}
+			});
 		}else{
 			// reset the height of the imageview
 			holder.ivMediaImage.getLayoutParams().height=0;
+			holder.pb.setVisibility(ProgressBar.GONE);
 		}
 		
-		 
 		if(tweet.created_at != null){ 
 			String relativeTime = DateUtil.getRelativeTimeAgo(tweet.created_at);
 			holder.tvCreationTime.setText(relativeTime);
@@ -124,13 +150,20 @@ public class TimelineViewAdapter extends ArrayAdapter<Tweet> {
 		else
 			holder.reFavCount.setText("");
 		
+		holder.ivProfileImage.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				TwitterClientApp.getRestClient().getUserInfo(activity, false, false, tweet.user.username);
+			}
+		});
+		
 		
 		holder.ivReply.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				 FragmentManager fm = activity.getSupportFragmentManager();
 				 
-				 ComposeFragment dialog = ComposeFragment.newInstance(holder.username.getText().toString(), tweet.id);
+				 ComposeFragment dialog = ComposeFragment.newInstance(holder.username.getText().toString()+" ", tweet.id);
 				 dialog.show(fm, "");
 			}
 		});

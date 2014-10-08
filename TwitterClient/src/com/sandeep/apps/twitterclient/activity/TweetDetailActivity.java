@@ -40,7 +40,7 @@ public class TweetDetailActivity extends Activity {
 		setContentView(R.layout.activity_tweet_detail);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
-		tweet = (Tweet)getIntent().getSerializableExtra("tweet");
+		tweet = (Tweet)getIntent().getParcelableExtra("tweet");
 		
 		ivProfileImage = (ImageView)findViewById(R.id.ivDetailViewProfileImage);
 		name = (TextView)findViewById(R.id.tvDetailViewName);
